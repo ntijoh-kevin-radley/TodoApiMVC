@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddDbContext<TodoContext>(opt =>
-    opt.UseInMemoryDatabase("TodoList"));
+    opt.UseNpgsql(builder.Configuration.GetConnectionString("TodoDatabase")));
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -23,13 +23,18 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-using (var scope = app.Services.CreateScope()) {
+using (var scope = app.Services.CreateScope())
+{
     var context = scope.ServiceProvider.GetRequiredService<TodoContext>();
-    if (!context.TodoItems.Any()) {
-        context.TodoItems.Add(new TodoItem {
+    context.Database.Migrate();
+    if (!context.TodoItems.Any())
+    {
+        context.TodoItems.Add(new TodoItem
+        {
             Name = "Sample Todo",
             IsComplete = false,
-            Comments = new List<Comment> {
+            Comments = new List<Comment>
+            {
                 new Comment { Text = "Sample Comment 1" },
                 new Comment { Text = "Sample Comment 2" }
             }
