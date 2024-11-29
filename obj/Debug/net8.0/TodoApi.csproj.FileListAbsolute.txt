@@ -278,3 +278,6 @@
 /Users/kevin.radley/Documents/code/TodoApi/obj/Debug/net8.0/TodoApi.sourcelink.json
 /Users/kevin.radley/Documents/code/TodoApi/bin/Debug/net8.0/Npgsql.dll
 /Users/kevin.radley/Documents/code/TodoApi/bin/Debug/net8.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll
+/Users/kevin.radley/Documents/code/TodoApi/bin/Debug/net8.0/TodoApi.staticwebassets.endpoints.json
+/Users/kevin.radley/Documents/code/TodoApi/obj/Debug/net8.0/staticwebassets.build.endpoints.json
+/Users/kevin.radley/Documents/code/TodoApi/obj/Debug/net8.0/staticwebassets/msbuild.TodoApi.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
